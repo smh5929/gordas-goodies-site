@@ -9,13 +9,14 @@ Update it as decisions change — it's the source of truth, not a one-time doc.
 
 - **Name:** Gorda's Goodies LLC
 - **What it sells:** Handmade desserts, primarily **alfajores** — a Peruvian
-  shortbread cookie sandwich filled with dulce de leche (manjar blanco). Also
-  makes flan, tres leches, pionono, crumb cake, and rice pudding, and does
-  custom/catering orders for events.
+  shortbread cookie sandwich filled with dulce de leche (manjar blanco), sold
+  by the box of 6 ($8.50). Also makes Crumb Cake ($7 + tax, 2 slices) and
+  Sticky Toffee Cupcakes ($8 + tax, each), and does custom/catering orders
+  for events.
 - **Tagline (from current site):** "Signature sweets... Peruvian Alfajores...
   ¡qué rico!"
-- **Location:** Springfield, VA. Also does events in Herndon, VA. Generally
-  serves Northern Virginia.
+- **Location:** Springfield, VA. Serves Northern Virginia (Herndon is no
+  longer a service area as of 2026 — removed from the site per owner).
 - **Contact:** gordasgoodies@gmail.com · 703-586-7359
 - **Social:** Instagram @gordasgoodiesllc (~400-600 followers)
 - **Current site:** gordasgoodies.wixsite.com/my-site (being replaced by this
@@ -54,47 +55,48 @@ lightweight multi-page site, not a SPA. Contact + location live in a
 **footer that appears on every page**, per your call.
 
 1. **Home** — hero photo + logo, one-line tagline, 2-3 best product shots,
-   a clear "Order Now" call-to-action pointing at the Square store, short
-   teaser of the story, nav into About/Menu/Gallery.
+   a clear "Order Now" call-to-action, short teaser of the story, nav into
+   About/Menu/Events/Gallery. **Done.**
 2. **About** — the story (who's the "Gorda," why alfajores, why Peru,
-   how long the business has been running). This is a content gap right now
-   — the current Wix site doesn't have real About copy indexed. **TODO:
-   get 2-4 paragraphs of actual story from mom**, or record a voice note and
-   I'll help turn it into copy.
-3. **Menu** — product list with descriptions. **TODO: real menu items,
-   sizes, and prices** — the current site doesn't list these publicly, so
-   this needs to come from your mom directly. Until then, use placeholder
-   structure (Alfajores — Original / Chocolate-Dipped / Anise, sold by the
-   dozen; Flan; Tres Leches; Pionono; etc.) so the layout is ready to fill in.
+   how long the business has been running). **Done** — pulled verbatim from
+   the old Wix About Us page: Vision/Mission statement, the "Gorda's"
+   nickname story, and founder Elsie Hasting's bio (born Callao, Peru;
+   raised in DC/Northern VA; started the business after a Dec. 2021 family
+   health crisis led her to rework traditional recipes).
+3. **Menu** — product list with descriptions. **Done** — real items and
+   prices from the owner: Alfajores (box of 6, $8.50, flavors Original/
+   Chocolate-Dipped/Anise + seasonal Pumpkin Spice), Crumb Cake ($7 + tax,
+   2 slices), Sticky Toffee Cupcake ($8 + tax, each). Flan/Tres Leches/
+   Pionono/Rice Pudding were placeholder guesses from an earlier pass and
+   have been removed — not actually on the menu.
 4. **Gallery** — photo grid, pulls from the broader photo library (weddings,
    holidays, graduations, everyday orders). This doubles as informal social
-   proof ("look what we've made for events like yours").
+   proof ("look what we've made for events like yours"). **Done.**
 5. **Contact/Order (footer, all pages)** — email, phone, service area
-   (Springfield / Herndon / Northern VA), Instagram link, and the primary
-   "Order on Square" button.
+   (Springfield / Northern VA), Instagram link, Venmo/Zelle payment info,
+   and "Order Now" CTA. **Done**, except the Venmo handle is a placeholder
+   pending confirmation (see §7).
+6. **Events** — "Events & Custom Orders" is its own page (decided: yes, it's
+   a real revenue stream). Built from the old Special Events page copy:
+   birthdays, quinceañeras, sweet sixteens, cultural/patriotic events,
+   Mother's/Father's Day, graduations, holidays, religious events, baby/
+   bridal showers, corporate functions, dinner parties. Orders need 48
+   hours' advance notice (per the old Contact/Order page). **Done.**
 
-**Optional 6th section, worth a decision:** "Special Events / Custom Orders."
-The old site had a dedicated Special Events page, and the photo library is
-full of wedding/graduation/holiday catering shots. If custom/catering orders
-are a real revenue stream (not just occasional), this deserves its own page
-rather than being buried in About. Flag for you and your mom to decide.
+## 4. Commerce: Venmo / Zelle (decided, for now)
 
-## 4. Commerce: Square (hybrid approach)
+Square is **not** being used at this stage — the business isn't at the
+volume where a full online store pays for itself yet, and Square/Loyalty
+adds setup overhead (EIN/SSN, bank linking) that isn't worth it yet. Instead:
 
-Per the direction you picked: this site does **not** build its own checkout,
-accounts, or login system. Instead:
-
-- Set up a **Square Online** store (free tier works for a business this
-  size) with the menu items, and turn on **Square Loyalty** for the
-  points/rewards program you described (McDonald's-app style).
-- Square accounts handle customer login and repeat-order history — you don't
-  build or maintain any of that.
-- The custom site links or embeds to the Square store's checkout for
-  ordering, and can pull the Square "Buy Button" embed code directly into
-  the Menu page so people can order without leaving the site.
-- **TODO:** confirm whether Gorda's Goodies already has a Square account, or
-  if this needs to be created from scratch (needs mom's business info: EIN
-  or SSN for payouts, bank account for deposits).
+- The site lists **Venmo and Zelle** as accepted payment methods (footer on
+  every page, and a note on the Menu page). Orders are still arranged
+  manually by phone/email/Instagram DM, then paid via Venmo or Zelle.
+- **TODO:** the Venmo handle on the site (`@GordasGoodiesLLC`) is a
+  placeholder — confirm the real handle with mom. This is intentionally the
+  last thing to lock in.
+- Revisit Square later if manual order tracking becomes a bottleneck, or if
+  self-serve "add to cart and pay" ordering becomes worth the setup cost.
 
 ## 5. Tech stack
 
@@ -129,8 +131,11 @@ Gallery or a future Special Events page needs them — no reason to stage all
 
 ## 7. Open questions before/while building
 
-- Real menu items, sizes, and prices (from mom)
-- About/story copy (from mom)
-- Whether "Special Events/Catering" is its own page
-- Square account status (existing vs. new)
-- Any brand guide beyond the logo file
+- ~~Real menu items, sizes, and prices~~ — done, see §3.
+- ~~About/story copy~~ — done, see §3.
+- ~~Whether "Special Events/Catering" is its own page~~ — yes, done, see §3.
+- ~~Square account status~~ — not using Square for now; Venmo/Zelle instead,
+  see §4.
+- **Venmo handle** — still a placeholder (`@GordasGoodiesLLC`) pending
+  confirmation from mom. Last open item.
+- Any brand guide beyond the logo file (unresolved, low priority)
