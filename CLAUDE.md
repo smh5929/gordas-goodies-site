@@ -73,9 +73,8 @@ lightweight multi-page site, not a SPA. Contact + location live in a
    holidays, graduations, everyday orders). This doubles as informal social
    proof ("look what we've made for events like yours"). **Done.**
 5. **Contact/Order (footer, all pages)** — email, phone, service area
-   (Springfield / Northern VA), Instagram link, Venmo/Zelle payment info,
-   and "Order Now" CTA. **Done**, except the Venmo handle is a placeholder
-   pending confirmation (see §7).
+   (Springfield / Northern VA), Instagram link, Venmo (@GordasGoodiesLLC)/
+   Zelle payment info, and "Order Now" CTA. **Done.**
 6. **Events** — "Events & Custom Orders" is its own page (decided: yes, it's
    a real revenue stream). Built from the old Special Events page copy:
    birthdays, quinceañeras, sweet sixteens, cultural/patriotic events,
@@ -89,12 +88,10 @@ Square is **not** being used at this stage — the business isn't at the
 volume where a full online store pays for itself yet, and Square/Loyalty
 adds setup overhead (EIN/SSN, bank linking) that isn't worth it yet. Instead:
 
-- The site lists **Venmo and Zelle** as accepted payment methods (footer on
-  every page, and a note on the Menu page). Orders are still arranged
-  manually by phone/email/Instagram DM, then paid via Venmo or Zelle.
-- **TODO:** the Venmo handle on the site (`@GordasGoodiesLLC`) is a
-  placeholder — confirm the real handle with mom. This is intentionally the
-  last thing to lock in.
+- The site lists **Venmo (@GordasGoodiesLLC) and Zelle (703-586-7359)** as
+  accepted payment methods (footer on every page, and a note on the Menu
+  page). Orders are arranged manually by phone/email/Instagram DM (or the
+  order form, once built — see §8), then paid via Venmo or Zelle.
 - Revisit Square later if manual order tracking becomes a bottleneck, or if
   self-serve "add to cart and pay" ordering becomes worth the setup cost.
 
@@ -136,6 +133,9 @@ Gallery or a future Special Events page needs them — no reason to stage all
 - ~~Whether "Special Events/Catering" is its own page~~ — yes, done, see §3.
 - ~~Square account status~~ — not using Square for now; Venmo/Zelle instead,
   see §4.
-- **Venmo handle** — still a placeholder (`@GordasGoodiesLLC`) pending
-  confirmation from mom. Last open item.
+- ~~Venmo handle~~ — confirmed: `@GordasGoodiesLLC`.
 - Any brand guide beyond the logo file (unresolved, low priority)
+- ~~How order requests get from the site to Elsie without Square~~ —
+  decided: no order form/third-party service. The Menu page has a "How To
+  Order" 3-step explainer (reach out → confirm total → pay via Venmo/Zelle),
+  and "Order Now" still just points at phone/email/Instagram in the footer.
