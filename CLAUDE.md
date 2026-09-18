@@ -15,8 +15,9 @@ Update it as decisions change — it's the source of truth, not a one-time doc.
   for events.
 - **Tagline (from current site):** "Signature sweets... Peruvian Alfajores...
   ¡qué rico!"
-- **Location:** Springfield, VA. Serves Northern Virginia (Herndon is no
-  longer a service area as of 2026 — removed from the site per owner).
+- **Location:** Springfield, VA. Serves all of Virginia (broadened from
+  Northern Virginia as of 2026; Herndon specifically was earlier dropped as
+  a named service area, now moot under the statewide claim).
 - **Contact:** gordasgoodies@gmail.com · 703-586-7359
 - **Social:** Instagram @gordasgoodiesllc (~400-600 followers)
 - **Current site:** gordasgoodies.wixsite.com/my-site (being replaced by this
