@@ -36,6 +36,7 @@ const photos = {
   'Mothers Day I Got It From My Mama.jpg': 'mothersday-mama-mug',
   'Crumb Cake Vanilla Pecan Closeup.jpg': 'crumbcake-vanilla-pecan',
   'Christmas Boxed Gifts with Candy Canes.jpg': 'christmas-boxed-gifts',
+  'Thank You For Celebrating Favor Box.jpg': 'celebrating-favor-box',
 };
 
 async function processPhoto(srcFile, slug) {
