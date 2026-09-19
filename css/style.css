@@ -170,6 +170,11 @@ p { margin: 0 0 1em; }
   color: var(--red);
   border-bottom-color: var(--red);
 }
+.nav-links a.btn--primary,
+.nav-links a.btn--primary:hover {
+  color: var(--white);
+  border-bottom-color: transparent;
+}
 
 .nav-toggle {
   display: none;
