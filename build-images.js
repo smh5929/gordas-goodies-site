@@ -37,6 +37,7 @@ const photos = {
   'Crumb Cake Vanilla Pecan Closeup.jpg': 'crumbcake-vanilla-pecan',
   'Christmas Boxed Gifts with Candy Canes.jpg': 'christmas-boxed-gifts',
   'Thank You For Celebrating Favor Box.jpg': 'celebrating-favor-box',
+  'GG Crumb Cake Frosted Square.jpg': 'crumbcake-frosted-square',
 };
 
 async function processPhoto(srcFile, slug) {
