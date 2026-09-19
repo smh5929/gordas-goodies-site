@@ -405,6 +405,32 @@ p { margin: 0 0 1em; }
 .lightbox-prev { left: 1rem; }
 .lightbox-next { right: 1rem; }
 
+/* ---------- Horizontal scroll strip ---------- */
+.scroll-strip {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 0.25rem 0.25rem 1rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.scroll-strip a {
+  flex: 0 0 auto;
+  width: 220px;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  scroll-snap-align: start;
+}
+.scroll-strip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.scroll-strip a:hover img { transform: scale(1.05); }
+
 /* ---------- CTA banner ---------- */
 .cta-banner {
   background: linear-gradient(135deg, var(--red) 0%, var(--red-darker) 100%);
