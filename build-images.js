@@ -38,6 +38,7 @@ const photos = {
   'Christmas Boxed Gifts with Candy Canes.jpg': 'christmas-boxed-gifts',
   'Thank You For Celebrating Favor Box.jpg': 'celebrating-favor-box',
   'GG Crumb Cake Frosted Square.jpg': 'crumbcake-frosted-square',
+  'Sticky Toffee Pudding Cropped.jpg': 'sticky-toffee-pudding',
 };
 
 async function processPhoto(srcFile, slug) {
