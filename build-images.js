@@ -40,6 +40,7 @@ const photos = {
   'GG Crumb Cake Frosted Square.jpg': 'crumbcake-frosted-square',
   'Sticky Toffee Pudding Cropped.jpg': 'sticky-toffee-pudding',
   'Baked Just For You Gift Box.jpg': 'baked-just-for-you-box',
+  'IMG_7857.jpg': 'dad-letter-cookies',
 };
 
 async function processPhoto(srcFile, slug) {
