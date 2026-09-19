@@ -29,6 +29,8 @@ const photos = {
   'Tray assortment of GG cookies.jpg': 'tray-assortment',
   'close-up batch with dulce de leche.jpg': 'closeup-batch-dulce',
   'new close-up pic of 3 size alfajor.jpg': 'three-sizes-closeup',
+  'Graduation Decals and Alfajores Tray.jpg': 'graduation-tray',
+  'Birthday Stack of Alfajores.jpg': 'birthday-candle-stack',
 };
 
 async function processPhoto(srcFile, slug) {
