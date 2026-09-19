@@ -31,6 +31,11 @@ const photos = {
   'new close-up pic of 3 size alfajor.jpg': 'three-sizes-closeup',
   'Graduation Decals and Alfajores Tray.jpg': 'graduation-tray',
   'Birthday Stack of Alfajores.jpg': 'birthday-candle-stack',
+  'Heart Shaped Alfajores with Strawberries.jpg': 'heart-alfajores-strawberries',
+  'Baby Shower Tower of Alfajores.jpg': 'baby-shower-tower',
+  'Mothers Day I Got It From My Mama.jpg': 'mothersday-mama-mug',
+  'Crumb Cake Vanilla Pecan Closeup.jpg': 'crumbcake-vanilla-pecan',
+  'Christmas Boxed Gifts with Candy Canes.jpg': 'christmas-boxed-gifts',
 };
 
 async function processPhoto(srcFile, slug) {
