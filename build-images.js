@@ -43,9 +43,21 @@ const photos = {
   'IMG_7857.jpg': 'dad-letter-cookies',
 };
 
+// Photos used as full-bleed page hero backgrounds need a wider size than the
+// default 1200 max, since CSS stretches them to 100vw and 1200px looks soft
+// on wider screens. Add slugs here when using a photo as a `.hero-img`.
+const HERO_SLUGS = new Set(['celebrating-favor-box', 'christmas-boxed-gifts']);
+
 async function processPhoto(srcFile, slug) {
   const input = path.join(SRC, srcFile);
   const buf = await sharp(input).rotate().toBuffer();
+
+  if (HERO_SLUGS.has(slug)) {
+    await sharp(buf).resize({ width: 2000, withoutEnlargement: true })
+      .jpeg({ quality: 80, mozjpeg: true }).toFile(path.join(OUT, `${slug}-2000.jpg`));
+    await sharp(buf).resize({ width: 2000, withoutEnlargement: true })
+      .webp({ quality: 78 }).toFile(path.join(OUT, `${slug}-2000.webp`));
+  }
 
   // Full-size (gallery lightbox / home features): max width 1200
   await sharp(buf).resize({ width: 1200, withoutEnlargement: true })
