@@ -159,17 +159,21 @@ tracking becomes a bottleneck (see §4).
   script.google.com, signed in as gordasgoodies@gmail.com. It creates the
   form, a response spreadsheet, and a submit trigger that emails
   gordasgoodies@gmail.com on every order (plus an auto-reply to the
-  customer). Re-running `createOrderForm` creates a *second* form — don't.
-- **Delivery/shipping were removed** (pickup-only, per §1) after the form
-  was already live, so the question and address field had to be patched
-  into the existing form rather than just edited in this source file —
-  editing this file alone does nothing to a form that's already been
-  created. That's what `fixOrderForm()`, also in this file, is for: it
-  finds the live form by name and removes those fields from it. **If
-  nobody has run `fixOrderForm` yet, the live form may still show
-  delivery/shipping options that don't match the site — check and run it.**
-- **Live form:**
-  https://docs.google.com/forms/d/e/1FAIpQLSfaGWZfs7tF-i9NtYHNC3b2KuAVePavuSyCioDMsmrwoASc0w/viewform
+  customer). Re-running `createOrderForm` creates a *second* form — the
+  file also has a `fixOrderForm()` for patching an existing form in place
+  instead, for exactly that reason.
+- **Delivery/shipping removal history:** delivery/shipping were pulled
+  (pickup-only, per §1) after the first form was already live. Rather than
+  running `fixOrderForm` to patch that form, `createOrderForm` got re-run
+  with the already-updated script, which created a second, independent
+  form — already clean of delivery/shipping, so no patch was actually
+  needed on it. **The original (first) form still exists, unpatched, in
+  Drive — it's not linked from the site anywhere anymore and should be
+  deleted** (along with its own "Gorda's Goodies — Orders" spreadsheet) to
+  avoid confusion. Check it's not holding any real submitted orders first.
+- **Live form (current, second one):**
+  https://docs.google.com/forms/d/e/1FAIpQLSe71TklJERga9to8uqNFnMsvWOhWWvNy2QTFtBiO7dcWoFxpQ/viewform
+  (edit: https://docs.google.com/forms/d/1kkzhE94CpmYzPJj51bv8jSp-vaaZrckZjINwSPdD7YQ/edit)
   — linked from the nav "Order Now" button, the Menu/Events page CTAs, the
   "How To Order" / "How It Works" steps, and the footer ("Order Online →")
   on every page.
