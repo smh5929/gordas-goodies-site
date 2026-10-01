@@ -91,8 +91,8 @@ adds setup overhead (EIN/SSN, bank linking) that isn't worth it yet. Instead:
 
 - The site lists **Venmo (@GordasGoodiesLLC) and Zelle (703-586-7359)** as
   accepted payment methods (footer on every page, and a note on the Menu
-  page). Orders are arranged manually by phone/email/Instagram DM (or the
-  order form, once built — see §8), then paid via Venmo or Zelle.
+  page). Orders come in through the order form (see §8) or by phone/email/
+  Instagram DM, then get paid via Venmo or Zelle.
 - Revisit Square later if manual order tracking becomes a bottleneck, or if
   self-serve "add to cart and pay" ordering becomes worth the setup cost.
 
@@ -137,6 +137,38 @@ Gallery or a future Special Events page needs them — no reason to stage all
 - ~~Venmo handle~~ — confirmed: `@GordasGoodiesLLC`.
 - Any brand guide beyond the logo file (unresolved, low priority)
 - ~~How order requests get from the site to Elsie without Square~~ —
-  decided: no order form/third-party service. The Menu page has a "How To
-  Order" 3-step explainer (reach out → confirm total → pay via Venmo/Zelle),
-  and "Order Now" still just points at phone/email/Instagram in the footer.
+  reversed from the earlier "no order form" decision once order volume
+  picked up and people started asking for a website. See §8.
+- Domain: `gordasgoodiesllc.com` is already owned (through Namecheap,
+  active through Jul 2027) and was pointed at the old Wix site. A `CNAME`
+  file in this repo now points it at GitHub Pages instead — Sam still needs
+  to flip Namecheap's nameservers to BasicDNS and add the GitHub A/CNAME
+  records (see git log around the CNAME file commit for the exact values).
+  No new domain purchase needed.
+
+## 8. Order form (Google Forms + Apps Script)
+
+Decided: a free Google Form, not a paid checkout (Square/Squarespace),
+since order volume doesn't justify that cost or setup yet. Revisit if manual
+tracking becomes a bottleneck (see §4).
+
+- **Setup script:** `order-form/create-order-form.gs` — run once in
+  script.google.com, signed in as gordasgoodies@gmail.com. It creates the
+  form, a response spreadsheet, and a submit trigger that emails
+  gordasgoodies@gmail.com on every order (plus an auto-reply to the
+  customer). Re-running it creates a *second* form — don't.
+- **Live form:**
+  https://docs.google.com/forms/d/e/1FAIpQLSfaGWZfs7tF-i9NtYHNC3b2KuAVePavuSyCioDMsmrwoASc0w/viewform
+  — linked from the nav "Order Now" button, the Menu/Events page CTAs, the
+  "How To Order" / "How It Works" steps, and the footer ("Order Online →")
+  on every page.
+- **Regular vs. large order:** a gate question branches the form. Large =
+  10+ boxes (a box is 6 cookies; CLAUDE.md's own back-of-envelope: ~2-3
+  cookies/person, so 10 boxes ≈ 20-30 guests — confirm this matches what
+  Sam/Elsie actually meant by "large order," since "10 boxes" and "feeds
+  10 people" are different thresholds). Large orders are told on the form
+  to email gordasgoodies@gmail.com to arrange a deposit that secures the
+  date; the deposit amount itself isn't set anywhere yet.
+- Still manual either way: no online payment. The form replaces "customer
+  composes their own text/email" with a structured request; Elsie still
+  confirms the total and the customer still pays via Venmo or Zelle.
