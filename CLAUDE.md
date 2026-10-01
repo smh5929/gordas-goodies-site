@@ -15,9 +15,12 @@ Update it as decisions change — it's the source of truth, not a one-time doc.
   for events.
 - **Tagline (from current site):** "Signature sweets... Peruvian Alfajores...
   ¡qué rico!"
-- **Location:** Springfield, VA. Serves all of Virginia (broadened from
-  Northern Virginia as of 2026; Herndon specifically was earlier dropped as
-  a named service area, now moot under the statewide claim).
+- **Location:** Springfield, VA. **Pickup only, no delivery and no
+  shipping** (reverted — the site briefly claimed statewide shipping and
+  delivery, but delivery was never actually offered, and shipping was
+  pulled back too since there's no fee worked out yet: it depends on order
+  size and distance, which hasn't been priced). Revisit shipping once
+  there's a real packaging plan and a price; see §8.
 - **Contact:** gordasgoodies@gmail.com · 703-586-7359
 - **Social:** Instagram @gordasgoodiesllc (~400-600 followers)
 - **Current site:** gordasgoodies.wixsite.com/my-site (being replaced by this
@@ -156,7 +159,15 @@ tracking becomes a bottleneck (see §4).
   script.google.com, signed in as gordasgoodies@gmail.com. It creates the
   form, a response spreadsheet, and a submit trigger that emails
   gordasgoodies@gmail.com on every order (plus an auto-reply to the
-  customer). Re-running it creates a *second* form — don't.
+  customer). Re-running `createOrderForm` creates a *second* form — don't.
+- **Delivery/shipping were removed** (pickup-only, per §1) after the form
+  was already live, so the question and address field had to be patched
+  into the existing form rather than just edited in this source file —
+  editing this file alone does nothing to a form that's already been
+  created. That's what `fixOrderForm()`, also in this file, is for: it
+  finds the live form by name and removes those fields from it. **If
+  nobody has run `fixOrderForm` yet, the live form may still show
+  delivery/shipping options that don't match the site — check and run it.**
 - **Live form:**
   https://docs.google.com/forms/d/e/1FAIpQLSfaGWZfs7tF-i9NtYHNC3b2KuAVePavuSyCioDMsmrwoASc0w/viewform
   — linked from the nav "Order Now" button, the Menu/Events page CTAs, the

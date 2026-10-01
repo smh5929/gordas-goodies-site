@@ -19,6 +19,13 @@
  *    automatic "we got your request" email to the customer.
  *
  * Run createOrderForm ONCE. Running it again makes a second, separate form.
+ *
+ * ALREADY RAN createOrderForm, and the live form still has delivery/shipping
+ * questions on it? Don't re-run createOrderForm (it would make a duplicate
+ * form). Instead paste this updated file over the old code in the same
+ * script.google.com project, pick "fixOrderForm" in the dropdown, and run
+ * that instead — it finds your existing form by name and removes the
+ * delivery/shipping options from it (pickup-only, for now).
  */
 
 const NOTIFY_EMAIL = 'gordasgoodies@gmail.com';
@@ -49,7 +56,7 @@ function createOrderForm() {
     'Your order is confirmed once payment is received (Venmo @GordasGoodiesLLC or Zelle 703-586-7359).'
   );
   form.setConfirmationMessage(
-    "Thank you! We got your order request and will reach out shortly to confirm your total and pickup or delivery details. " +
+    "Thank you! We got your order request and will reach out shortly to confirm your total and pickup details. " +
     "Your order is confirmed once payment is received. ¡Qué rico!"
   );
   form.setShowLinkToRespondAgain(true);
@@ -81,22 +88,11 @@ function createOrderForm() {
     .setHelpText('Tell us what you would like. Prices are on the Menu page of our website.');
   pageRegular.setGoToPage(FormApp.PageNavigationType.SUBMIT); // regular orders skip the large-order page
 
-  form.addMultipleChoiceItem()
-    .setTitle('Pickup, delivery, or shipping?')
-    .setChoiceValues([
-      'Pickup in Springfield, VA',
-      'Local delivery (we will confirm availability)',
-      'Shipping within Virginia',
-    ])
-    .setRequired(true);
   form.addDateItem()
     .setTitle('Date you need it')
-    .setHelpText('Please allow at least 48 hours.')
+    .setHelpText('Please allow at least 48 hours. Pickup only, in Springfield, VA — we do not currently offer delivery or shipping.')
     .setRequired(true);
-  form.addTextItem().setTitle('Preferred pickup or delivery time (optional)');
-  form.addParagraphTextItem()
-    .setTitle('Delivery or shipping address (optional)')
-    .setHelpText('Leave blank for pickup.');
+  form.addTextItem().setTitle('Preferred pickup time (optional)');
 
   form.addGridItem()
     .setTitle('Alfajores — how many boxes of 6 of each flavor?')
@@ -152,14 +148,6 @@ function createOrderForm() {
     .setHelpText('A good rule: 2–3 cookies per person. 10 boxes = 60 cookies.')
     .setRequired(true);
   form.addListItem().setTitle('What is the occasion?').setChoiceValues(OCCASIONS).setRequired(true);
-  form.addMultipleChoiceItem()
-    .setTitle('Pickup, delivery, or shipping?')
-    .setChoiceValues([
-      'Pickup in Springfield, VA',
-      'Local delivery (we will confirm availability)',
-      'Shipping within Virginia',
-    ])
-    .setRequired(true);
   form.addParagraphTextItem()
     .setTitle('What are you picturing?')
     .setHelpText('Flavors, sizes (standard 4 cm or mini 3 cm), custom design or photo, packaging, budget — anything helps.')
@@ -230,4 +218,70 @@ function onOrderSubmit(e) {
       // never let a bad customer email address block the owner notification
     }
   }
+}
+
+/**
+ * One-time patch for a form that was already created by createOrderForm()
+ * before we decided against delivery/shipping. Finds the live form by its
+ * exact title, then:
+ *  - removes the "Pickup, delivery, or shipping?" question (both the
+ *    regular-order and large-order copies of it) -- everything is pickup
+ *    in Springfield, VA now, so the question is no longer needed
+ *  - removes the "Delivery or shipping address (optional)" question
+ *  - renames "Preferred pickup or delivery time" to "Preferred pickup time"
+ *  - updates the date-question help text and the submit confirmation
+ *    message to say pickup-only instead of pickup/delivery
+ *
+ * Safe to run more than once -- items that are already gone or already
+ * renamed are just skipped.
+ */
+function fixOrderForm() {
+  const FORM_TITLE = "Gorda's Goodies — Order Request";
+  const files = DriveApp.getFilesByType(MimeType.GOOGLE_FORMS);
+  let formFile = null;
+  while (files.hasNext()) {
+    const f = files.next();
+    if (f.getName() === FORM_TITLE) { formFile = f; break; }
+  }
+  if (!formFile) {
+    throw new Error(
+      'Could not find a form named "' + FORM_TITLE + '" in this Google account\'s ' +
+      'Drive. Make sure you are signed in as the same account that ran createOrderForm ' +
+      '(gordasgoodies@gmail.com), or open the form, copy the long ID from its edit URL ' +
+      '(the part between /d/ and /edit), and replace the DriveApp lookup above with ' +
+      'FormApp.openById(\'PASTE_ID_HERE\').'
+    );
+  }
+
+  const form = FormApp.openById(formFile.getId());
+  let removed = 0, renamed = 0;
+
+  form.getItems().forEach(function (item) {
+    const title = item.getTitle();
+
+    if (title === 'Pickup, delivery, or shipping?' || title === 'Delivery or shipping address (optional)') {
+      form.deleteItem(item);
+      removed++;
+      return;
+    }
+
+    if (title === 'Preferred pickup or delivery time (optional)') {
+      item.setTitle('Preferred pickup time (optional)');
+      renamed++;
+    }
+
+    if (title === 'Date you need it') {
+      item.asDateItem().setHelpText(
+        'Please allow at least 48 hours. Pickup only, in Springfield, VA — we do not currently offer delivery or shipping.'
+      );
+    }
+  });
+
+  form.setConfirmationMessage(
+    'Thank you! We got your order request and will reach out shortly to confirm your total and pickup details. ' +
+    'Your order is confirmed once payment is received. ¡Qué rico!'
+  );
+
+  Logger.log('Removed ' + removed + ' item(s), renamed ' + renamed + ' item(s).');
+  Logger.log('Form: ' + form.getEditUrl());
 }
