@@ -163,12 +163,12 @@ tracking becomes a bottleneck (see §4).
   "How To Order" / "How It Works" steps, and the footer ("Order Online →")
   on every page.
 - **Regular vs. large order:** a gate question branches the form. Large =
-  10+ boxes (a box is 6 cookies; CLAUDE.md's own back-of-envelope: ~2-3
-  cookies/person, so 10 boxes ≈ 20-30 guests — confirm this matches what
-  Sam/Elsie actually meant by "large order," since "10 boxes" and "feeds
-  10 people" are different thresholds). Large orders are told on the form
-  to email gordasgoodies@gmail.com to arrange a deposit that secures the
-  date; the deposit amount itself isn't set anywhere yet.
+  10+ boxes (a box is 6 cookies), confirmed as the intended threshold —
+  not "feeds 10 people," despite those being different sizes. Large orders
+  are told on the form to email gordasgoodies@gmail.com to arrange a
+  deposit that secures the date. **Deposit amount is intentionally not
+  fixed** — it scales with order size and is set case-by-case over email,
+  not quoted anywhere on the site or form.
 - Still manual either way: no online payment. The form replaces "customer
   composes their own text/email" with a structured request; Elsie still
   confirms the total and the customer still pays via Venmo or Zelle.
